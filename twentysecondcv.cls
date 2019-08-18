@@ -84,7 +84,7 @@
 	\renewcommand{\skills}{
 		\begin{tikzpicture}
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (5,\i+0.4);
+				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
 				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
 				\node [above right] at (0,\i+0.4) {\x};
 			}
@@ -162,7 +162,6 @@
 		\skills
 		\skillstext
 		\scriptsize
-		(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
 
 		%------------------------------------------------
 

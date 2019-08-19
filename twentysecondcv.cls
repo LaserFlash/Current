@@ -67,7 +67,7 @@
 	\addtolength\TotalSectionLength{-\SectionTitleLength}% Subtract the section title width from the total width
 	\addtolength\TotalSectionLength{-2.22221pt}% Modifier to remove overfull box warning
 	\vspace{8pt}% Whitespace before the section title
-	{\color{black!80} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
+	{\color{black!80} \Large #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
 }
 
 % Define custom commands for CV info
@@ -119,7 +119,7 @@
 					\subfloat{
 						\includesvg[width=24px]{\x}
 					}	
-			}											
+				}											
 			\end{figure}
 		\end{flushleft}
 	}
@@ -187,6 +187,7 @@
 		\skillstext
 		\scriptsize
 
+		\profilesection{Language \& Frameworks}
 		\languageicons
 
 		%------------------------------------------------
@@ -208,7 +209,6 @@
 	{%
 		\round{#1}{
 			\ifcase\value{colorCounter}%
-			maingray\or%
 			mainblue\or%
 			maingray\or%
 			mainblue\or%

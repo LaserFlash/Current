@@ -18,6 +18,11 @@
 \RequirePackage{pgffor}
 \RequirePackage{marvosym}
 \RequirePackage{parskip}
+\RequirePackage{graphicx}
+\RequirePackage{svg}
+\RequirePackage{amsmath}
+\RequirePackage{subfig}
+\RequirePackage{tabularx}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -103,6 +108,25 @@
 	}
 }
 
+
+% Command for printing language icons
+\newcommand\languageicons[1]{
+	\renewcommand{\languageicons}{
+		\begin{flushleft}
+			\begin{figure}[ht]
+				\centering
+				\foreach \x in {#1}{
+					\subfloat{
+						\includesvg[width=24px]{\x}
+					}	
+			}											
+			\end{figure}
+		\end{flushleft}
+	}
+}
+					
+
+
 %----------------------------------------------------------------------------------------
 %	 SIDEBAR LAYOUT
 %----------------------------------------------------------------------------------------
@@ -162,6 +186,8 @@
 		\skills
 		\skillstext
 		\scriptsize
+
+		\languageicons
 
 		%------------------------------------------------
 
@@ -226,11 +252,57 @@
 }
 
 \newcommand{\twentyitem}[4]{%
-	#1&\parbox[t]{0.83\textwidth}{%
+	\footnotesize#1&
+	\parbox[t]{0.83\textwidth}{%
 		\textbf{#2}%
 		\hfill%
 		{\footnotesize#3}\\%
 		#4\vspace{\parsep}%
+	}\\
+}
+
+%----------------------------------------------------------------------------------------
+%	 LONG LIST ENVIRONMENT - Vertical List
+%----------------------------------------------------------------------------------------
+
+\setlength{\tabcolsep}{0pt}
+
+% New environment for the long list
+\newenvironment{workexperience}{%
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+}{%
+	\end{tabular*}
+}
+
+\newcommand{\workitem}[4]{%
+	\footnotesize#1&
+	\parbox[t]{0.83\textwidth}{%
+		\textbf{#2}%
+		\\%
+		{\footnotesize#3}\\%
+		#4\vspace{\parsep}%
+	}\\
+}
+
+%----------------------------------------------------------------------------------------
+%	 LONG LIST ENVIRONMENT - Awards List
+%----------------------------------------------------------------------------------------
+
+\setlength{\tabcolsep}{0pt}
+
+% New environment for the long list
+\newenvironment{awards}{%
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+}{%
+	\end{tabular*}
+}
+
+\newcommand{\award}[3]{%
+	\footnotesize#1&
+	\parbox[t]{0.83\textwidth}{%
+		\textbf{#2}%
+		\hfill%
+		{\footnotesize#3}\\%
 	}\\
 }
 
@@ -248,7 +320,8 @@
 }
 
 \newcommand{\twentyitemshort}[2]{%
-	#1&\parbox[t]{0.83\textwidth}{%
+	\footnotesize#1&
+	\parbox[t]{0.83\textwidth}{%
 		\textbf{#2}%
 	}\\
 }

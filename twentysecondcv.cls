@@ -27,6 +27,9 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
+\righthyphenmin=62
+\lefthyphenmin=62
+
 %----------------------------------------------------------------------------------------
 %	 COLOURS
 %----------------------------------------------------------------------------------------
@@ -40,8 +43,6 @@
 %----------------------------------------------------------------------------------------
 %	 MISC CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
-\renewcommand{\bfseries}{\color{gray}} % Make \textbf produce coloured text instead
 
 \pagestyle{empty} % Disable headers and footers
 
@@ -340,9 +341,9 @@
 	\parbox[t]{0.83\textwidth}{%
 		\textbf{#2}%
 		\\%
-		{\footnotesize#3}\\%
+		{\footnotesize#3}%
 		#4\vspace{\parsep}%
-	}\\
+	}\\\\%
 }
 
 %----------------------------------------------------------------------------------------

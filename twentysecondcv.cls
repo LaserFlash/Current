@@ -195,6 +195,67 @@
 	\end{textblock}
 }
 
+
+%----------------------------------------------------------------------------------------
+%	 SIDEBAR LAYOUT - Secondary Pages
+%----------------------------------------------------------------------------------------
+
+\newcommand{\makeprofilesecondary}{
+	\begin{tikzpicture}[remember picture,overlay]
+   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+	\end{tikzpicture}
+
+	%------------------------------------------------
+
+	\begin{textblock}{6}(0.5, 0.2)
+
+		%------------------------------------------------
+
+		\ifthenelse{\equal{\profilepic}{}}{}{
+			\begin{center}
+				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+					\clip (600/2, 567/2) circle (567/2);
+					\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\profilepic}};
+				\end{tikzpicture}
+			\end{center}
+		}
+
+		%------------------------------------------------
+
+		{\Huge\color{mainblue}\cvname}
+
+		%------------------------------------------------
+
+		{\Large\color{black!80}\cvjobtitle}
+
+		%------------------------------------------------
+
+		\renewcommand{\arraystretch}{1.6}
+		\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
+			\ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\Info}} & \cvdate\\}
+			\ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\Letter}} & \cvaddress\\}
+			\ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\Telefon}} & \cvnumberphone\\}
+			\ifthenelse{\equal{\cvsite}{}}{}{\textsc{\Large\icon{\Mundus}} & \cvsite\\}
+			\ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail}}
+		\end{tabular}
+
+		%------------------------------------------------
+
+		\profilesection{Skills}
+
+		\skills
+		\skillstext
+		\scriptsize
+
+		\profilesection{Language \& Frameworks}
+		\languageicons
+
+		%------------------------------------------------
+
+	\end{textblock}
+}
+
+
 %----------------------------------------------------------------------------------------
 %	 COLOURED SECTION TITLE BOX
 %----------------------------------------------------------------------------------------

@@ -1,0 +1,22 @@
+name: Publish LaTeX document
+on:
+  push:
+    tags:
+    - '*'
+jobs:
+  publish_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: BrynBennett.tex
+          compiler: pdflatex
+          args: -shell-escape
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            BrynBennett.pdf
